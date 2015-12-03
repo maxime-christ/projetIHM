@@ -1,14 +1,10 @@
 #include "Button.h"
 
-#include <iostream>
-using namespace std;
-
 Button::Button()
 {
 	texture.loadFromFile("img/button/green.png");
 	texture.setSmooth(true);
 	setTexture(texture);
-	hovered = false;
 }
 
 Button::~Button()
@@ -18,30 +14,21 @@ Button::~Button()
 
 void Button::onHoverOn()
 {
-	if(!hovered)
-	{
-		setColor(Color::Red);
-		hovered=true;
-	}
+	style.onHoverOn(this);
 }
 
 
 void Button::onHoverOff()
 {
-	if(hovered)
-	{
-		setColor(Color::Green);
-		hovered = false;
-	}
-
+	style.onHoverOff(this);
 }
 
 void Button::onPressed()
 {
-	setColor(Color(0,0,255));
+	style.onPressed(this);
 }
 
 void Button::onReleased()
 {
-	setColor(Color::Red);
+	style.onReleased(this);
 }

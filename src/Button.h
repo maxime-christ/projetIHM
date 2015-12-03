@@ -2,6 +2,7 @@
 #define BUTTON_H
 
 #include <SFML/Graphics.hpp>
+#include "ButtonStyle.h"
 
 using namespace sf;
 
@@ -17,7 +18,7 @@ class Button : public Sprite
 	protected:
 	private:
 		Texture texture;
-		bool hovered;
+		ButtonStyle style;
 };
 
 #endif // BUTTON_H
